@@ -6,7 +6,7 @@ import axios from "axios";
 const TaskList = ({task,getTask}) => {
 
   const deleteTask=async(id)=>{   
-    const url="https://63878fa6e399d2e47302d6ed.mockapi.io/Task_tracker"
+    const url=process.env.REACT_APP_HREF
     try {
       await axios.delete(`${url}/${id}`);
     } catch (error) {
@@ -23,7 +23,7 @@ const TaskList = ({task,getTask}) => {
         return(
           <div 
           key={id}
-          className="mt-2 d-flex justify-content-between bg-black text-white rounded-2 p-2 " >
+          className="mt-2 d-flex justify-content-between info text-white rounded-2 p-2 " >
               <div>
               <h4>{task}</h4>
               <p>{date}</p>

@@ -12,14 +12,13 @@ const AddTask = ({getTask}) => {
   const handleSubmit=(e)=>{
     e.preventDefault();
     const newTask={task,date}
-    
     addNewTask(newTask)
     setTask("")
     setDate("")
   }
 
  const addNewTask=async(newTask)=>{
-  const url="https://63878fa6e399d2e47302d6ed.mockapi.io/Task_tracker"
+  const url=process.env.REACT_APP_HREF
   try {
     await axios.post(url,newTask)
   }catch (error) { 
@@ -36,18 +35,20 @@ const AddTask = ({getTask}) => {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Task</Form.Label>
         <Form.Control type="text"
-         placeholder="Enter task" 
+         placeholder="Enter task"
+         value={task} 
          onChange={(e)=>setTask(e.target.value)}/>
       </Form.Group>
 
       
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Date</Form.Label>
-        <Form.Control type="date" 
+        <Form.Control type="date"
+        value={date} 
         onChange={(e)=>setDate(e.target.value)}/>
       </Form.Group>
     <div className="text-center">
-      <Button variant="primary w-50 " type="submit">
+      <Button variant={`info w-50 ${!task||!date ? "disabled" :""}`} type="submit">
         SAVE
       </Button>
       </div>
