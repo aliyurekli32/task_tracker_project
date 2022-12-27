@@ -8,7 +8,7 @@ const Home = () => {
   const [isOpen,setIsOpen]=useState(false)
   const [text,setText]=useState("Show Task Bar")
   const [task,setTask]= useState([]);
-  const url="https://63516c99dfe45bbd55bfd9a2.mockapi.io/api/tasks"
+  const url="https://63878fa6e399d2e47302d6ed.mockapi.io/Task_tracker"
 
   const toggle=()=>{
     setIsOpen(!isOpen);
@@ -28,10 +28,10 @@ const Home = () => {
   },[])
 
   return (
-    <div className="mt-4 d-flex justify-content-center flex-column">
+    <div className="mt-4 d-flex justify-content-center flex-column ">
       <Button 
       onClick={()=>{toggle()}}
-      variant="danger">{text}</Button>
+      variant="info">{text}</Button>
       { isOpen && <AddTask getTask={getTask}/>}     
       <TaskList task={task} getTask={getTask}/>
     </div>

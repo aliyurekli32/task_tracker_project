@@ -3,8 +3,8 @@ import TaskPng from "../../assets/TaskPng";
 
 const Header = () => {
   return (
-    <div className="d-flex justify-content-evenly align-items-center">
-      <TaskPng />
+    <div className="d-flex justify-content-evenly align-items-center mt-4">
+      <TaskPng className="App-logo"/>
       <h1 className="display-5">TASK TRACKER</h1>
     </div>
   );
